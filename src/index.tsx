@@ -8,7 +8,6 @@ const App = () => {
   const ref = useRef<any>();
   const iframe = useRef<any>();
   const [input, setInput] = useState('');
-  const [code, setCode] = useState('');
 
   useEffect(() => {
     startService();
@@ -24,6 +23,8 @@ const App = () => {
   const handleClick = async () => {
     if (!ref.current) return;
 
+    iframe.current.srcdoc = html;
+
     const result = await ref.current.build({
       entryPoints: ['index.js'],
       bundle: true,
@@ -35,7 +36,6 @@ const App = () => {
       },
     });
 
-    // setCode(result.outputFiles[0].text);
     iframe.current.contentWindow.postMessage(result.outputFiles[0].text, '*');
   };
 
@@ -69,8 +69,12 @@ const App = () => {
       <div>
         <button onClick={handleClick}>Submit</button>
       </div>
-      <pre>{code}</pre>
-      <iframe title="code" sandbox="allow-scripts" ref={iframe} srcDoc={html} />
+      <iframe
+        title="code preview"
+        sandbox="allow-scripts"
+        ref={iframe}
+        srcDoc={html}
+      />
     </div>
   );
 };
