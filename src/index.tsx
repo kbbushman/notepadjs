@@ -63,7 +63,7 @@ const App = () => {
   return (
     <div>
       <h1>JBook</h1>
-      <CodeEditor initialValue="" />
+      <CodeEditor initialValue="" onChange={(value) => setInput(value)} />
       <textarea
         value={input}
         onChange={(event) => setInput(event.target.value)}
