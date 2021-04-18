@@ -65,7 +65,7 @@ const CodeEditor: React.FC<CodeEditorProps> = ({ initialValue, onChange }) => {
         language="javascript"
         editorDidMount={onEditorDidMount}
         value={initialValue}
-        height={300}
+        height="100%"
         options={{
           wordWrap: 'on',
           minimap: { enabled: false },
