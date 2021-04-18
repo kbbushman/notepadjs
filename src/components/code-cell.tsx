@@ -8,18 +8,13 @@ const CodeCell = () => {
   const [code, setCode] = useState('');
   const [input, setInput] = useState('');
 
-  const handleClick = async () => {
-    const output = await bundle(input);
-    setCode(output);
-  };
-
   return (
     <Resizable direction="vertical">
       <div style={{ height: '100%', display: 'flex', flexDirection: 'row' }}>
         <Resizable direction="horizontal">
           <CodeEditor initialValue="" onChange={(value) => setInput(value)} />
-          <Preview code={code} />
         </Resizable>
+        <Preview code={code} />
       </div>
     </Resizable>
   );
