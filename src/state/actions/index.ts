@@ -6,7 +6,7 @@ export type Direction = 'up' | 'down';
 export interface MoveCellAction {
   type: ActionType.MOVE_CELL;
   payload: {
-    id: string;
+    id: string | null;
     direction: Direction;
   };
 }
