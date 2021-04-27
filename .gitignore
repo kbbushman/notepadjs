@@ -13,7 +13,9 @@ packages/local-client/node_modules/
 
 # production
 /build
-/packages/local-client/build
+/packages/local-client/build/
+/packages/cli/dist/
+/packages/local-api/dist/
 
 # misc
 .DS_Store
